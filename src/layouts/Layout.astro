@@ -54,9 +54,16 @@ const { title, description } = Astro.props;
     </script>
   </head>
   <body>
+    <header class="header">
+      <div class="container">
+        <p class="header-title"><em class="black">career</em> 108</p>
+        <p class="header-sub-title">Educational NGO Since 2014</p>
+      </div>
+    </header>
     <slot />
   </body>
 </html>
+
 <style is:global>
   :root {
     --clr-primary: #1d1d1d;
@@ -102,5 +109,56 @@ const { title, description } = Astro.props;
   ::selection {
     color: var(--clr-accent);
     background: var(--clr-neutral);
+  }
+
+  .container {
+    width: min(90%, 1440px);
+    margin-inline: auto;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+    margin-top: 1em;
+  }
+
+  .flex-w {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* Header Styles */
+
+  .header {
+    font-family: var(--ff-heading);
+    border-bottom: 0.4rem solid var(--clr-accent);
+    padding-block: 0.9em;
+  }
+
+  .header-title {
+    font-size: 2.18rem;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+  .header-title em {
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  .header-sub-title {
+    display: none;
+  }
+
+  @media (min-width: 1000px) {
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-sub-title {
+      font-size: 1.2rem;
+      display: block;
+    }
   }
 </style>

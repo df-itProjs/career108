@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import WhatAfter12th from "../components/WhatAfter12th.astro";
 
 const title = "India's First Career Guidance WhatsApp Chatbot";
 const description =
@@ -7,13 +8,6 @@ const description =
 ---
 
 <Layout title={title} description={description}>
-  <header class="header">
-    <div class="container">
-      <p class="page-title"><em class="black">career</em> 108</p>
-      <p class="page-sub-title">Educational NGO Since 2014</p>
-    </div>
-  </header>
-
   <main>
     <div class="container">
       <img src="/chatbot-img.webp" alt="Chatbot with phone illustration" class="hero-img" />
@@ -46,6 +40,8 @@ const description =
       <em class="note">*No need to install additional application...!</em>
 
       <img class="help-img" src="/mobile.webp" alt="Mobile mockup featuring the WhatsApp Chatbot" />
+
+      <WhatAfter12th />
     </div>
   </main>
 
@@ -79,11 +75,6 @@ const description =
   }
   em.highlight {
     color: var(--clr-accent);
-  }
-
-  .container {
-    width: min(90%, 1440px);
-    margin-inline: auto;
   }
 
   a.cta {
@@ -139,23 +130,6 @@ const description =
 
   .whatsapp-img {
     width: 5rem;
-  }
-
-  /* Header Styles */
-
-  .header {
-    font-family: var(--ff-heading);
-    border-bottom: 0.4rem solid var(--clr-accent);
-    padding-block: 0.9em;
-  }
-
-  .page-title {
-    font-size: 2.18rem;
-    text-transform: uppercase;
-  }
-
-  .page-sub-title {
-    display: none;
   }
 
   /* Main styles */
@@ -241,17 +215,6 @@ const description =
   }
 
   @media (min-width: 1000px) {
-    .header .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .page-sub-title {
-      font-size: 1.2rem;
-      display: block;
-    }
-
     .hero-title {
       font-size: 3rem;
     }

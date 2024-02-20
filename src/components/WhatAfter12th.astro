@@ -1,0 +1,25 @@
+---
+import LinkCard from "../components/LinkCard.astro";
+---
+
+<section>
+  <h2>What after 12th?</h2>
+
+  <div class="flex-w">
+    <LinkCard link="/science-a-group" text="Science - A Group" />
+    <LinkCard link="/science-b-group" text="Science - B Group" />
+    <LinkCard link="/commerce" text="Commerce" />
+    <LinkCard link="/arts" text="Arts" />
+  </div>
+</section>
+
+<style>
+  section {
+    padding-block: 2rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 0.8em;
+  }
+</style>

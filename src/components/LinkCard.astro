@@ -1,0 +1,28 @@
+---
+const { link, text } = Astro.props;
+---
+
+<a href={link} class="link-card">
+  <h3 class="link-card__title">{text}</h3>
+</a>
+
+<style>
+  .link-card {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    border: 2px solid currentColor;
+    padding: 1em 2em;
+    border-radius: 10px;
+    transition: color 0.2s ease;
+  }
+
+  .link-card:hover {
+    color: var(--clr-accent);
+  }
+
+  .link-card__title {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+</style>
