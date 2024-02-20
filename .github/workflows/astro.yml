@@ -18,7 +18,7 @@ jobs:
           host: ${{secrets.PROD_HOST}}
           username: ${{secrets.PROD_username}}
           password: ${{secrets.PROD_password}}
-          port: ${{secrets.PROF_PORT}}
+          port: ${{secrets.PROD_PORT}}
           script: |
             cd career108
             git pull
