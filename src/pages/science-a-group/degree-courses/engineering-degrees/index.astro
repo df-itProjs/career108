@@ -5,43 +5,16 @@ import WhatAfter12ThLayout from "../../../../layouts/WhatAfter12thLayout.astro";
 const title = "Engineering Degrees";
 const description = "Engineering Degrees";
 
-const linkPrefix = "/science-a-group/degree-courses/engineering-degrees";
-
-const links = [
-  {
-    link: `${linkPrefix}/mechanical-engineering`,
-    text: "Mechanical Engineering",
-  },
-  {
-    link: `${linkPrefix}/computer-science-it`,
-    text: "Computer Science / IT",
-  },
-  {
-    link: `${linkPrefix}/electrical-engineering`,
-    text: "Electrical Engineering",
-  },
-  {
-    link: `${linkPrefix}/civil-engineering`,
-    text: "Civil Engineering",
-  },
-  {
-    link: `${linkPrefix}/electronics-and-comm`,
-    text: "Electronics and Comm.",
-  },
-  {
-    link: `${linkPrefix}/chemical-engineering`,
-    text: "Chemical Engineering",
-  },
-];
+const allLinks = await Astro.glob("./*.md");
 ---
 
 <WhatAfter12ThLayout title={title} description={description}>
   <main>
     <div class="container">
-      <h1 class="page-title">Degree Courses</h1>
+      <h1 class="page-title">{title}</h1>
 
       <div class="flex-w">
-        {links.map((link) => <LinkCard link={link.link} text={link.text} />)}
+        {allLinks.map((link) => <LinkCard link={link.url} text={link.frontmatter.title} />)}
       </div>
     </div>
   </main>

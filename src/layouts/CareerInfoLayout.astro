@@ -1,0 +1,39 @@
+---
+import WhatAfter12ThLayout from "./WhatAfter12thLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<WhatAfter12ThLayout title={frontmatter.title} description={frontmatter.description}>
+  <main>
+    <div class="container">
+      <h1 class="page-title">{frontmatter.title}</h1>
+      <article>
+        <slot />
+      </article>
+
+      <a href="#" class="btn">For More Information Visit Chatbot</a>
+    </div>
+  </main>
+</WhatAfter12ThLayout>
+
+<style is:global>
+  article p {
+    font-size: 1.1rem;
+    margin-block: 1em;
+    max-width: 75ch;
+    line-height: 1.5;
+  }
+
+  .btn {
+    display: inline-block;
+    color: white;
+    background-color: var(--clr-accent);
+    padding: 0.8em 2em;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 100px;
+    margin-block-end: 2em;
+    font-weight: 700;
+  }
+</style>
