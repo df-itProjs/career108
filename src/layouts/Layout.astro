@@ -60,6 +60,7 @@ const { title, description } = Astro.props;
         <p class="header-sub-title">Educational NGO Since 2014</p>
       </div>
     </header>
+
     <slot />
   </body>
 </html>
@@ -118,7 +119,7 @@ const { title, description } = Astro.props;
 
   .page-title {
     font-size: 2.5rem;
-    margin-top: 1em;
+    margin-block-end: 1em;
   }
 
   .flex-w {
@@ -160,5 +161,12 @@ const { title, description } = Astro.props;
       font-size: 1.2rem;
       display: block;
     }
+  }
+
+  .info-text {
+    font-size: 1.1rem;
+    margin-block: 1em;
+    max-width: 75ch;
+    line-height: 1.5;
   }
 </style>

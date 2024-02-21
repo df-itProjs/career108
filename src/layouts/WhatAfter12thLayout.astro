@@ -1,0 +1,33 @@
+---
+import Layout from "./Layout.astro";
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <div class="container">
+    <button class="go-back">← Go Back</button>
+  </div>
+
+  <slot />
+
+  <script>
+    const goBackBtn = document.querySelector(".go-back");
+
+    goBackBtn?.addEventListener("click", () => {
+      history.back();
+    });
+  </script>
+</Layout>
+
+<style>
+  .go-back {
+    background: transparent;
+    color: var(--clr-accent);
+    font: inherit;
+    border: none;
+    outline: none;
+    padding-block: 1em;
+    cursor: pointer;
+  }
+</style>
