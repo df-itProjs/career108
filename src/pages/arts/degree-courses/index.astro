@@ -1,0 +1,34 @@
+---
+import LinkCard from "../../../components/LinkCard.astro";
+import WhatAfter12ThLayout from "../../../layouts/WhatAfter12thLayout.astro";
+
+const title = "Degree Courses";
+const description = "Degree Courses";
+
+const linkPrefix = "/arts/degree-courses";
+
+const links = [
+  {
+    link: `${linkPrefix}/bvoc-degrees`,
+    text: "B.Voc Degrees",
+  },
+  {
+    link: `${linkPrefix}/other-degrees`,
+    text: "Other Degrees",
+  },
+];
+---
+
+<WhatAfter12ThLayout title={title} description={description}>
+  <main>
+    <div class="container">
+      <h1 class="page-title">{title}</h1>
+
+      <div class="flex-w">
+        <LinkCard link={`${linkPrefix}/ba-degree`} text="BA Degree" />
+
+        {links.map((link) => <LinkCard link={link.link} text={link.text} />)}
+      </div>
+    </div>
+  </main>
+</WhatAfter12ThLayout>
