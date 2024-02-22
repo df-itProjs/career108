@@ -12,7 +12,9 @@ const { frontmatter } = Astro.props;
         <slot />
       </article>
 
-      <a href="#" class="btn">For More Information Visit Chatbot</a>
+      <a href="https://wa.me/+919909990741?text=Hello" target="_blank" class="btn"
+        >For More Information Visit Chatbot</a
+      >
     </div>
   </main>
 </WhatAfter12ThLayout>
@@ -23,6 +25,10 @@ const { frontmatter } = Astro.props;
     margin-block: 1em;
     max-width: 75ch;
     line-height: 1.5;
+  }
+
+  article a {
+    color: #4d93ff;
   }
 
   .btn {
