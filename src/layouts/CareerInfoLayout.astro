@@ -31,6 +31,22 @@ const { frontmatter } = Astro.props;
     color: #4d93ff;
   }
 
+  article ul {
+    list-style: none;
+  }
+
+  article li {
+    margin-block: 1em;
+  }
+
+  article li::before {
+    content: "➤ ";
+    display: inline-block;
+    margin-inline-end: 0.4em;
+    margin-block: 0.2em;
+    color: var(--clr-accent);
+  }
+
   .btn {
     display: inline-block;
     color: var(--clr-primary);

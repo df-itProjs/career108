@@ -1,0 +1,21 @@
+---
+import LinkCard from "../../../../components/LinkCard.astro";
+import WhatAfter12ThLayout from "../../../../layouts/WhatAfter12thLayout.astro";
+
+export const title = "Other Degrees";
+const description = "Other Degrees";
+
+const allLinks = await Astro.glob("./*.md");
+---
+
+<WhatAfter12ThLayout title={title} description={description}>
+  <main>
+    <div class="container">
+      <h1 class="page-title">{title}</h1>
+
+      <div class="flex-w">
+        {allLinks.map((link) => <LinkCard link={link.url} text={link.frontmatter.title} />)}
+      </div>
+    </div>
+  </main>
+</WhatAfter12ThLayout>
