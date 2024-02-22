@@ -1,0 +1,40 @@
+---
+import WhatAfter12thLayout from "../../layouts/WhatAfter12thLayout.astro";
+import LinkCard from "../../components/LinkCard.astro";
+
+const title = "Commerce";
+const description = "Commerce";
+
+const linkPrefix = "/commerce";
+
+const links = [
+  {
+    link: `${linkPrefix}/degree-courses`,
+    text: "Degree Courses",
+  },
+  {
+    link: `${linkPrefix}/professional-courses`,
+    text: "Professional Courses",
+  },
+  {
+    link: `${linkPrefix}/government-and-competitive-exams`,
+    text: "Government & Competitive Exams",
+  },
+  {
+    link: `${linkPrefix}/off-bit-courses`,
+    text: "Off Bit Courses",
+  },
+];
+---
+
+<WhatAfter12thLayout title={title} description={description}>
+  <main>
+    <div class="container">
+      <h1 class="page-title">{title}</h1>
+
+      <div class="flex-w">
+        {links.map((link) => <LinkCard link={link.link} text={link.text} />)}
+      </div>
+    </div>
+  </main>
+</WhatAfter12thLayout>
