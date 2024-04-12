@@ -1,0 +1,95 @@
+---
+
+---
+
+<!-- Button to display NPF Form -->
+<button class="enquire-now-btn btn">Enquire Now</button>
+
+<!-- NPF Widget Start -->
+<dialog class="npf-widget">
+  <div class="flex">
+    <p class="npf-widget__title">Enquiry Form</p>
+    <button class="close-btn btn">close</button>
+  </div>
+  <div class="npf_wgts" data-height="420px" data-w="39b8284fa2d2d605f38682ab4f87a817"></div>
+</dialog>
+<!-- NPF Widget End -->
+
+<!-- NPF Script Start -->
+<script is:inline type="text/javascript">
+  console.log(document.body);
+
+  var s = document.createElement("script");
+  s.type = "text/javascript";
+  s.async = true;
+  s.src = "https://widgets.in5.nopaperforms.com/emwgts.js";
+  document.body.appendChild(s);
+</script>
+<!-- NPF Script End -->
+
+<script>
+  const npfWidget = document.querySelector(".npf-widget");
+
+  const enquireNowBtn = document.querySelector(".enquire-now-btn");
+  const closeBtn = document.querySelector(".close-btn");
+
+  enquireNowBtn.addEventListener("click", () => {
+    npfWidget.showModal();
+  });
+
+  closeBtn.addEventListener("click", () => {
+    npfWidget.close();
+  });
+</script>
+
+<style>
+  .btn {
+    font: inherit;
+    padding: 0.5em 1em;
+    border: 0;
+    cursor: pointer;
+  }
+
+  /* NPF Widget Styles Starts */
+  .npf-widget {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: min(95%, 500px);
+    border: 0;
+  }
+
+  .npf-widget::backdrop {
+    background-color: hsla(0, 0%, 11%, 0.8);
+  }
+
+  .npf-widget__title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+  }
+
+  .close-btn {
+    background-color: var(--clr-primary);
+    color: var(--clr-neutral);
+  }
+
+  .enquire-now-btn {
+    position: fixed;
+    bottom: 1.5em;
+    right: 1.5em;
+    background-color: var(--clr-accent);
+    color: var(--clr-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: -4px -4px 20px rgba(255, 255, 255, 0.2);
+  }
+</style>
