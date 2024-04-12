@@ -10,12 +10,23 @@ const description =
 <Layout title={title} description={description}>
   <main>
     <div class="container">
-      <img src="/chatbot-img.webp" alt="Chatbot with phone illustration" class="hero-img" />
-      <h1 class="hero-title">
+      <!-- <img src="/chatbot-img.webp" alt="Chatbot with phone illustration" class="hero-img" /> -->
+      <!-- <h1 class="hero-title">
         <span class="small">Bharat's First</span><br /><em class="bold">WhatsApp Chatbot</em><br />
         For Class
         <em class="extrabold underline">12th Students</em>
-      </h1>
+      </h1> -->
+      <!-- There are 108+ Career Options after 10th and 12th, let us help you to choose the Best One -->
+      <div class="grid">
+        <h1 class="hero-title">
+          There are <em class="extrabold highlight fs-big">108+</em> Career options after <em
+            class="extrabold">10th and 12th</em
+          >, let us help you to choose the <em class="extrabold highlight fs-bigger all-caps"
+            >Best One.</em
+          >
+        </h1>
+        <div class="npf_wgts" data-height="420px" data-w="39b8284fa2d2d605f38682ab4f87a817"></div>
+      </div>
 
       <a href="https://wa.me/+919909990741?text=Hello" target="_blank" class="cta"
         ><div class="text">
@@ -60,6 +71,14 @@ const description =
   </footer>
 </Layout>
 
+<script is:inline type="text/javascript">
+  var s = document.createElement("script");
+  s.type = "text/javascript";
+  s.async = true;
+  s.src = "https://widgets.in5.nopaperforms.com/emwgts.js";
+  document.body.appendChild(s);
+</script>
+
 <style>
   em[class] {
     font-style: normal;
@@ -75,6 +94,17 @@ const description =
   }
   em.highlight {
     color: var(--clr-accent);
+  }
+
+  .fs-big {
+    font-size: 1.2em;
+  }
+  .fs-bigger {
+    font-size: 1.5em;
+  }
+
+  .all-caps {
+    text-transform: uppercase;
   }
 
   a.cta {
@@ -137,7 +167,7 @@ const description =
   .hero-title {
     font-weight: 400;
     font-size: 1.7rem;
-    margin-block: 0.5em;
+    /* margin-block: 0.5em; */
   }
 
   .hero-title .small {
@@ -253,6 +283,12 @@ const description =
       flex-direction: column;
       padding: 1rem;
     }
+
+    .grid {
+      grid-template-columns: 1fr 1fr;
+      justify-items: end;
+      gap: 2rem;
+    }
   }
 
   @media (max-width: 1370px) {
@@ -269,6 +305,20 @@ const description =
     .help-img {
       display: block;
     }
+  }
+
+  /* Styles after adding NPF Form */
+
+  .grid {
+    padding-block: 1em;
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .npf_wgts {
+    width: min(600px, 100%);
   }
 </style>
 
