@@ -1,1 +1,0 @@
-const e=document.querySelector(".npf-widget"),n=document.querySelector(".enquire-now-btn"),t=document.querySelector(".close-btn");n.addEventListener("click",()=>{e.showModal()});t.addEventListener("click",()=>{e.close()});
