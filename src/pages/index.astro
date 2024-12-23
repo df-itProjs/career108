@@ -1,23 +1,27 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import WhatAfter12th from "../components/WhatAfter12th.astro";
+import Layout from "../layouts/Layout.astro"
+import WhatAfter12th from "../components/WhatAfter12th.astro"
+import EnquiryForm from "../components/EnquiryForm.astro"
 
-const title = "India's First Career Guidance WhatsApp Chatbot";
+const title = "India's First Career Guidance WhatsApp Chatbot"
 const description =
-  "Get help in Subject Revision, Exam Preparation, Sample Paper Solving and many more from India's only Career Guidance WhatsApp Chatbot.";
+  "Get help in Subject Revision, Exam Preparation, Sample Paper Solving and many more from India's only Career Guidance WhatsApp Chatbot."
 ---
 
-<Layout title={title} description={description}>
+<Layout
+  title={title}
+  description={description}
+>
   <!-- Meritto Dynamic Tracking Code -->
   <script is:inline type="text/javascript">
-    var npf_d = "https://dronafoundation.in8.nopaperforms.com";
-    var npf_c = "6106";
-    var npf_m = "1";
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.async = true;
-    s.src = "https://track.nopaperforms.com/js/track.js";
-    document.body.appendChild(s);
+    var npf_d = "https://dronafoundation.in8.nopaperforms.com"
+    var npf_c = "6106"
+    var npf_m = "1"
+    var s = document.createElement("script")
+    s.type = "text/javascript"
+    s.async = true
+    s.src = "https://track.nopaperforms.com/js/track.js"
+    document.body.appendChild(s)
   </script>
 
   <main>
@@ -37,20 +41,32 @@ const description =
             >Best One.</em
           >
         </h1>
-        <div class="npf_wgts" data-height="463px" data-w="c20c8dcb67fde10d6e056c543711cd6a"></div>
+        <!-- <div class="npf_wgts" data-height="463px" data-w="c20c8dcb67fde10d6e056c543711cd6a"></div> -->
+
+        <EnquiryForm />
       </div>
 
-      <a href="https://wa.me/+919909990741?text=Hello" target="_blank" class="cta"
+      <a
+        href="https://wa.me/+919909990741?text=Hello"
+        target="_blank"
+        class="cta"
         ><div class="text">
           <span class="big">Click Here</span><br />
           To Start Chat
         </div>
-        <img src="/whatsapp-icon.svg" alt="WhatsApp Icon" class="whatsapp-img" /></a
+        <img
+          src="/whatsapp-icon.svg"
+          alt="WhatsApp Icon"
+          class="whatsapp-img"
+        /></a
       >
 
       <div class="chatbot-help">
         <p class="chatbot-features">Get help in</p>
-        <ul role="list" class="help-list">
+        <ul
+          role="list"
+          class="help-list"
+        >
           <li>Subject Revision</li>
           <li>Exam Preparation</li>
           <li>Sample Paper Solving</li>
@@ -62,7 +78,11 @@ const description =
       </div>
       <em class="note">*No need to install additional application...!</em>
 
-      <img class="help-img" src="/mobile.webp" alt="Mobile mockup featuring the WhatsApp Chatbot" />
+      <img
+        class="help-img"
+        src="/mobile.webp"
+        alt="Mobile mockup featuring the WhatsApp Chatbot"
+      />
 
       <WhatAfter12th />
     </div>
@@ -70,25 +90,43 @@ const description =
 
   <footer>
     <div class="social-links">
-      <a href="https://wa.me/+919909990741?text=Hello" target="_blank"
-        ><img class="social-links__img" src="/whatsapp-icon.svg" alt="" /></a
+      <a
+        href="https://wa.me/+919909990741?text=Hello"
+        target="_blank"
+        ><img
+          class="social-links__img"
+          src="/whatsapp-icon.svg"
+          alt=""
+        /></a
       >
-      <a href="https://www.instagram.com/drona_education_foundation" target="_blank"
-        ><img class="social-links__img" src="/insta-icon.svg" alt="" /></a
+      <a
+        href="https://www.instagram.com/drona_education_foundation"
+        target="_blank"
+        ><img
+          class="social-links__img"
+          src="/insta-icon.svg"
+          alt=""
+        /></a
       >
-      <a href="https://www.facebook.com/dronafoundation.edu.in" target="_blank"
-        ><img class="social-links__img" src="/facebook-icon.svg" alt="" /></a
+      <a
+        href="https://www.facebook.com/dronafoundation.edu.in"
+        target="_blank"
+        ><img
+          class="social-links__img"
+          src="/facebook-icon.svg"
+          alt=""
+        /></a
       >
     </div>
   </footer>
 
   <!-- Meritto Widget -->
   <script is:inline type="text/javascript">
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.async = true;
-    s.src = "https://widgets.in8.nopaperforms.com/emwgts.js";
-    document.body.appendChild(s);
+    var s = document.createElement("script")
+    s.type = "text/javascript"
+    s.async = true
+    s.src = "https://widgets.in8.nopaperforms.com/emwgts.js"
+    document.body.appendChild(s)
   </script>
 </Layout>
 

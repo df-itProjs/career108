@@ -1,0 +1,195 @@
+---
+
+---
+
+<form class="enquiry-form">
+  <h2 class="title">Enquiry Form!</h2>
+
+  <div class="auto-columns">
+    <div class="form-control">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+      />
+    </div>
+
+    <div class="form-control">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label for="mobile">Mobile Number</label>
+    <input
+      type="tel"
+      id="mobile"
+      name="mobile"
+      pattern="[0-9]{10}"
+      required
+    />
+  </div>
+
+  <div class="form-control">
+    <label for="otp">OTP</label>
+    <input
+      type="text"
+      id="otp"
+      name="otp"
+      pattern="[0-9]{6}"
+      required
+    />
+  </div>
+
+  <div class="auto-columns">
+    <div class="form-control">
+      <label for="state">State</label>
+      <select
+        name="state"
+        id="state"
+        required
+      >
+        <option value="">Select an Option</option>
+        <option value="1">Gujarat</option>
+        <option value="2">Maharashtra</option>
+      </select>
+    </div>
+
+    <div class="form-control">
+      <label for="city">City</label>
+
+      <select
+        name="city"
+        id="city"
+        required
+      >
+        <option value="">Select an Option</option>
+        <option value="1">Rajkot</option>
+        <option value="2">Ahmedabad</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="auto-columns">
+    <div class="form-control">
+      <label for="standard">Standard</label>
+
+      <select
+        name="standard"
+        id="standard"
+        required
+      >
+        <option value="">Select an Option</option>
+        <option value="0">10th</option>
+        <option value="1">12th Arts</option>
+        <option value="2">12th Commerce</option>
+        <option value="3">12th Science A</option>
+        <option value="4">12th Science B</option>
+      </select>
+    </div>
+
+    <div class="form-control">
+      <label for="course">Course</label>
+      <select
+        name="course"
+        id="course"
+        required
+      >
+        <option value="">Select an Option</option>
+        <option value="1">B.Voc</option>
+      </select>
+    </div>
+  </div>
+
+  <label>
+    <input
+      type="checkbox"
+      name="terms-and-conditions"
+      id="terms-and-conditions"
+      required
+    />
+
+    I agree to give my consent to receive updates through SMS/Email & WhatsApp*.
+  </label>
+
+  <button type="submit">Submit</button>
+</form>
+
+<style>
+  .enquiry-form {
+    padding: 2rem;
+    padding-block-start: 1.5rem;
+    background-color: rgba(from var(--clr-neutral) r g b / 0.1);
+    border-radius: 1rem;
+    border: 2px solid var(--clr-accent);
+
+    display: grid;
+    gap: 1rem;
+
+    .title {
+      font-size: 2rem;
+      text-align: center;
+      color: var(--clr-accent);
+    }
+
+    button[type="submit"] {
+      background-color: var(--clr-accent);
+      padding: 0.7em 1em;
+      border: 2px solid var(--clr-accent);
+      border-radius: 5px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+
+      &:hover,
+      &:focus-visible {
+        background-color: var(--clr-accent-dark);
+        color: var(--clr-neutral);
+      }
+    }
+  }
+
+  .form-control {
+    display: grid;
+    gap: 0.5em;
+
+    label:has(+ :required) {
+      &::after {
+        content: " *";
+        color: var(--clr-accent);
+      }
+    }
+
+    input,
+    select {
+      font: inherit;
+      background-color: var(--clr-neutral);
+      color: var(--clr-primary);
+      border: 1px solid var(--clr-accent);
+      border-radius: 5px;
+      padding: 0.5em;
+
+      &:user-invalid {
+        background-color: color-mix(in oklab, red 70%, var(--clr-neutral) 100%);
+      }
+    }
+  }
+
+  .auto-columns {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 1rem;
+  }
+</style>

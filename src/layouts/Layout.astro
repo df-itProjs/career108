@@ -139,6 +139,11 @@ const { title, description } = Astro.props
     box-sizing: border-box;
   }
 
+  *:focus-visible {
+    outline: 3px dashed var(--clr-accent);
+    outline-offset: 0.1em;
+  }
+
   img {
     display: block;
     max-width: 100%;
