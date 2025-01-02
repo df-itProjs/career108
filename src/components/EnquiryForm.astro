@@ -114,7 +114,9 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("#enquiryForm") as HTMLFormElement | null;
+    const form = document.querySelector(
+      "#enquiryForm",
+    ) as HTMLFormElement;
 
     if (!form) {
       console.error("Form not found!");
@@ -122,11 +124,14 @@
     }
 
     const getOtpButton = document.querySelector("#getOtpButton");
-    const mobileInput = document.querySelector("#mobile") as HTMLInputElement | null;
-    let verificationKey: string | null = null;
+    const mobileInput = document.querySelector(
+      "#mobile",
+    ) as HTMLInputElement;
+    let verificationKey: string;
 
-    const SEND_OTP_API = "https://dev-api.skill.college/career108/send-otp";
-    const GENERATE_LEAD_API = "https://dev-api.skill.college/career108/generate-lead";
+    const SEND_OTP_API = "https://api.skill.college/career108/send-otp";
+    const GENERATE_LEAD_API =
+      "https://api.skill.college/career108/generate-lead";
 
     if (getOtpButton && mobileInput) {
       getOtpButton.addEventListener("click", async () => {
@@ -186,7 +191,7 @@
           const errorResponse = await response.json();
           console.error("Failed to generate lead:", errorResponse);
           alert(
-            `Failed to submit form: ${errorResponse.detail || "Unknown Error"}`
+            `Failed to submit form: ${errorResponse.detail || "Unknown Error"}`,
           );
         }
       } catch (error) {
@@ -195,7 +200,11 @@
       }
 
       const pdfURL = "/Career.pdf#page=2";
-      window.open(pdfURL);
+      const iframe = document.createElement("iframe");
+      iframe.src = pdfURL; 
+      iframe.width = "100%";
+      iframe.height = "600";
+      document.body.appendChild(iframe); 
     });
   });
 
@@ -204,7 +213,6 @@
     return urlParams.get(param);
   }
 </script>
-
 
 <style>
   .enquiry-form {
