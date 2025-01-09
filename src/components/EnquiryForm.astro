@@ -82,7 +82,6 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
         required
       >
         <option value="">Select an Option</option>
-        <option value="Gujarat">Gujarat</option>
       </select>
     </div>
 
@@ -95,8 +94,6 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
         required
       >
         <option value="">Select an Option</option>
-        <option value="Rajkot">Rajkot</option>
-        <option value="Ahmedabad">Ahmedabad</option>
       </select>
     </div>
   </div>
@@ -143,6 +140,8 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    stateCityHandler()
+
     const coursesToDisplay = {
       "10th": [
         "11th - 12th Commerce",
@@ -354,6 +353,72 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
       iframe.scrollIntoView({ behavior: "smooth" })
     })
   })
+
+  function stateCityHandler() {
+    const STATE_API_URL = "https://countriesnow.space/api/v0.1/countries/states"
+    const CITY_API_URL = "https://countriesnow.space/api/v0.1/countries/state/cities"
+
+    const stateSelectElement = document.querySelector("#state") as HTMLSelectElement
+    const citySelectElement = document.querySelector("#city") as HTMLSelectElement
+
+    fetch(STATE_API_URL, {
+      method: "POST",
+      body: JSON.stringify({ country: "India" }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        console.log(response)
+        return response.json()
+      })
+      .then((data) => {
+        console.log(data)
+        stateSelectElement.innerHTML = "<option value=''>Select an Option</option>"
+        data.data.states.forEach((state: { name: string }) => {
+          const option = document.createElement("option")
+          option.value = state.name
+          option.textContent = state.name
+          stateSelectElement.appendChild(option)
+        })
+      })
+      .catch((e) => {
+        console.error(e)
+        alert("Failed to fetch states.")
+      })
+
+    stateSelectElement.addEventListener("change", (e: any) => {
+      const selectedState = e.target.value
+
+      fetch(CITY_API_URL, {
+        method: "POST",
+        body: JSON.stringify({ country: "India", state: "Gujarat" }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          console.log(response)
+
+          return response.json()
+        })
+        .then((data) => {
+          console.log(data)
+
+          citySelectElement.innerHTML = "<option value=''>Select an Option</option>"
+          data.data.forEach((city: string) => {
+            const option = document.createElement("option")
+            option.value = city
+            option.textContent = city
+            citySelectElement.appendChild(option)
+          })
+        })
+        .catch((e) => {
+          console.error(e)
+          alert("Failed to fetch cities.")
+        })
+    })
+  }
 
   function getQueryParam(param: string): string | null {
     const urlParams = new URLSearchParams(window.location.search)
