@@ -1,19 +1,32 @@
 ---
-
+const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", "12th Arts"]
 ---
 
-<form id="enquiryForm" class="enquiry-form">
+<form
+  id="enquiryForm"
+  class="enquiry-form"
+>
   <h2 class="title">Enquiry Form!</h2>
 
   <div class="auto-columns">
     <div class="form-control">
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+      />
     </div>
 
     <div class="form-control">
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+      />
     </div>
   </div>
 
@@ -51,26 +64,39 @@
 
   <div class="form-control">
     <label for="otp">OTP</label>
-    <input type="text" id="otp" name="otp" pattern="[0-9]{6}" required />
+    <input
+      type="text"
+      id="otp"
+      name="otp"
+      pattern="[0-9]{6}"
+      required
+    />
   </div>
 
   <div class="auto-columns">
     <div class="form-control">
       <label for="state">State</label>
-      <select name="state" id="state" required>
+      <select
+        name="state"
+        id="state"
+        required
+      >
         <option value="">Select an Option</option>
-        <option value="1">Gujarat</option>
-        <option value="2">Maharashtra</option>
+        <option value="Gujarat">Gujarat</option>
       </select>
     </div>
 
     <div class="form-control">
       <label for="city">City</label>
 
-      <select name="city" id="city" required>
+      <select
+        name="city"
+        id="city"
+        required
+      >
         <option value="">Select an Option</option>
-        <option value="1">Rajkot</option>
-        <option value="2">Ahmedabad</option>
+        <option value="Rajkot">Rajkot</option>
+        <option value="Ahmedabad">Ahmedabad</option>
       </select>
     </div>
   </div>
@@ -79,21 +105,24 @@
     <div class="form-control">
       <label for="standard">Standard</label>
 
-      <select name="standard" id="standard" required>
+      <select
+        name="standard"
+        id="standard"
+        required
+      >
         <option value="">Select an Option</option>
-        <option value="0">10th</option>
-        <option value="1">12th Arts</option>
-        <option value="2">12th Commerce</option>
-        <option value="3">12th Science A</option>
-        <option value="4">12th Science B</option>
+        {standards.map((standard) => <option value={standard}>{standard}</option>)}
       </select>
     </div>
 
     <div class="form-control">
       <label for="course">Course</label>
-      <select name="course" id="course" required>
+      <select
+        name="course"
+        id="course"
+        required
+      >
         <option value="">Select an Option</option>
-        <option value="1">B.Voc</option>
       </select>
     </div>
   </div>
@@ -114,32 +143,148 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector(
-      "#enquiryForm",
-    ) as HTMLFormElement;
-
-    if (!form) {
-      console.error("Form not found!");
-      return;
+    const coursesToDisplay = {
+      "10th": [
+        "11th - 12th Commerce",
+        "11th - 12th Science",
+        "11th - 12th Arts",
+        "D.Voc",
+        "Dimploma Engineering",
+        "ITI",
+        "Any other courses",
+      ],
+      "12th Commerce": [
+        "B.Voc Degree",
+        "B.Com Degree",
+        "BBA",
+        "BCA",
+        "iMBA",
+        "B.Sc It",
+        "CA",
+        "CS",
+        "Other professional courses like CMA, CWA etc.",
+        "UPSC",
+        "GPSC",
+        "Other Government Exams",
+        "CLAT",
+        "Other Competitive Exams",
+        "HOTEL MANAGEMENT",
+        "LLB",
+        "Other off bit careers like Sports, Gaming etc.",
+        "Any Other Courses",
+      ],
+      "12th Arts": [
+        "B.Voc Degree",
+        "BA Degree",
+        "BBA",
+        "BCA",
+        "iMBA",
+        "B.Sc It",
+        "Professional Courses lik CA, CS etc.",
+        "Performing Arts Like Acting, Dancing, Singing etc.",
+        "UPSC",
+        "GPSC",
+        "Other Government Exams",
+        "CLAT",
+        "Other Competitive Exams",
+        "HOTEL MANAGEMENT",
+        "LLB",
+        "Other off bit careers like Sports, Gaming etc.",
+        "Any Other Courses",
+      ],
+      "12th Science A": [
+        "Mechanical Engineering ",
+        "Computer Science / IT Engineering ",
+        "Electrical Engineering ",
+        "Civil Engineering ",
+        "Electronics And Comm. Engineering ",
+        "Chemical Engineering ",
+        "Other Engineering Degrees",
+        "B.Sc in Physics ",
+        "B.Sc in Chemistry",
+        "B.Sc in Mathematics ",
+        "B.Sc in  Biology",
+        "B.Sc in Microbiology",
+        "B.Sc in Biotechnology",
+        "Other Pure Science Degrees",
+        "B.Voc Degrees",
+        "Other Degrees like BBA, BCA",
+        "Professional Courses like CA, CS etc.",
+        "Off-bit careers like Sports, Gaming etc.",
+        "UPSC",
+        "GPSC",
+        "Other Government Exams",
+        "NATA",
+        "CLAT",
+        "NDA",
+        "Other Competitive Exams",
+        "Any Other Courses",
+      ],
+      "12th Science B": [
+        "MBBS ",
+        "BDS ",
+        "BAMS",
+        "BHMS ",
+        "B.Pharm ",
+        "Other Medical Degrees",
+        "ANM, GNM / B.Sc Nursing",
+        "Physiotherapy",
+        "MLT, DMLT, X-ray Technology",
+        "Other Healthcare Courses",
+        "B.Sc in Physics ",
+        "B.Sc in Chemistry",
+        "B.Sc in Mathematics ",
+        "B.Sc in  Biology",
+        "B.Sc in Microbiology",
+        "B.Sc in Biotechnology",
+        "Other Pure Science  Degree",
+        "B.Voc Degree",
+        "Other Degrees like BBA, BCA",
+        "Professional Courses like CA, CS etc.",
+        "Off-bit careers like Sports, Gaming, etc.",
+        "UPSC",
+        "GPSC",
+        "Other Government Exams",
+        "NATA",
+        "CLAT",
+        "NDA",
+        "Other Competitive Exams",
+        "Any Other Courses",
+      ],
     }
 
-    const getOtpButton = document.querySelector("#getOtpButton");
-    const mobileInput = document.querySelector(
-      "#mobile",
-    ) as HTMLInputElement;
-    let verificationKey: string;
+    document.querySelector("#standard").addEventListener("change", (event: any) => {
+      const courseSelect = document.querySelector("#course")
+      courseSelect.innerHTML = "<option value=''>Select an Option</option>"
+      coursesToDisplay[event.target.value].forEach((course) => {
+        const option = document.createElement("option")
+        option.value = course
+        option.textContent = course
+        courseSelect.appendChild(option)
+      })
+    })
 
-    const SEND_OTP_API = "https://api.skill.college/career108/send-otp";
-    const GENERATE_LEAD_API =
-      "https://api.skill.college/career108/generate-lead";
+    const form = document.querySelector("#enquiryForm") as HTMLFormElement
+
+    if (!form) {
+      console.error("Form not found!")
+      return
+    }
+
+    const getOtpButton = document.querySelector("#getOtpButton")
+    const mobileInput = document.querySelector("#mobile") as HTMLInputElement
+    let verificationKey: string
+
+    const SEND_OTP_API = "https://api.skill.college/career108/send-otp"
+    const GENERATE_LEAD_API = "https://api.skill.college/career108/generate-lead"
 
     if (getOtpButton && mobileInput) {
       getOtpButton.addEventListener("click", async () => {
-        const phoneNumber = mobileInput.value;
-        const phoneRegex = /^[0-9]{10}$/;
+        const phoneNumber = mobileInput.value
+        const phoneRegex = /^[0-9]{10}$/
         if (!phoneRegex.test(phoneNumber)) {
-          alert("Please enter a valid 10-digit mobile number.");
-          return;
+          alert("Please enter a valid 10-digit mobile number.")
+          return
         }
         try {
           const response = await fetch(`${SEND_OTP_API}/${phoneNumber}`, {
@@ -147,35 +292,38 @@
             headers: {
               "Content-Type": "application/json",
             },
-          });
+          })
           if (response.ok) {
-            const result = await response.json();
-            verificationKey = result.verificationKey;
+            alert(`OTP sent successfully to ${phoneNumber}.`)
+            const result = await response.json()
+            verificationKey = result.verificationKey
           } else {
-            alert("Failed to send OTP. Please try again.");
-            console.error("API Error:", response.status, response.statusText);
+            alert("Failed to send OTP. Please try again.")
+            console.error("API Error:", response.status, response.statusText)
           }
         } catch (error) {
-          alert("An error occurred while sending OTP.");
-          console.error("Error:", error);
+          alert("An error occurred while sending OTP.")
+          console.error("Error:", error)
         }
-      });
+      })
     }
 
     form.addEventListener("submit", async (event) => {
-      event.preventDefault();
+      event.preventDefault()
+
+      form.reportValidity()
 
       if (!verificationKey) {
-        alert("Please generate OTP first.");
-        return;
+        alert("Please generate OTP first.")
+        return
       }
 
       try {
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+        const formData = new FormData(form)
+        const data = Object.fromEntries(formData.entries())
 
-        data["otp_verification_key"] = verificationKey;
-        data["source"] = getQueryParam("source") || "unknown";
+        data["otp_verification_key"] = verificationKey
+        data["source"] = getQueryParam("source") || "unknown"
 
         const response = await fetch(GENERATE_LEAD_API, {
           method: "POST",
@@ -183,34 +331,33 @@
             "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
-        });
+        })
 
         if (response.ok) {
-          const result = await response.json();
+          const result = await response.json()
         } else {
-          const errorResponse = await response.json();
-          console.error("Failed to generate lead:", errorResponse);
-          alert(
-            `Failed to submit form: ${errorResponse.detail || "Unknown Error"}`,
-          );
+          const errorResponse = await response.json()
+          console.error("Failed to generate lead:", errorResponse)
+          alert(`Failed to submit form: ${errorResponse.detail || "Unknown Error"}`)
         }
       } catch (error) {
-        console.error("Error retrieving form data:", error);
-        alert("An error occurred while submitting the form.");
+        console.error("Error retrieving form data:", error)
+        alert("An error occurred while submitting the form.")
       }
 
-      const pdfURL = "/Career.pdf#page=2";
-      const iframe = document.createElement("iframe");
-      iframe.src = pdfURL; 
-      iframe.width = "100%";
-      iframe.height = "600";
-      document.body.appendChild(iframe); 
-    });
-  });
+      const pdfURL = "/Career.pdf#page=2"
+      const iframe = document.createElement("iframe")
+      iframe.src = pdfURL
+      iframe.width = "100%"
+      iframe.height = "600"
+      document.body.appendChild(iframe)
+      iframe.scrollIntoView({ behavior: "smooth" })
+    })
+  })
 
   function getQueryParam(param: string): string | null {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
+    const urlParams = new URLSearchParams(window.location.search)
+    return urlParams.get(param)
   }
 </script>
 
