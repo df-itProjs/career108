@@ -321,8 +321,10 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
         const formData = new FormData(form)
         const data = Object.fromEntries(formData.entries())
 
+        const referrer = document.referrer
+
         data["otp_verification_key"] = verificationKey
-        data["source"] = getQueryParam("source") || "unknown"
+        data["source"] = referrer
 
         const response = await fetch(GENERATE_LEAD_API, {
           method: "POST",
