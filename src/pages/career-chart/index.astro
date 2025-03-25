@@ -1,0 +1,123 @@
+---
+import Layout from "../../layouts/Layout.astro"
+---
+
+<Layout
+  title="Career Chart"
+  description="Thank you for registering. We are providing a Career Chart which you can refer to."
+>
+  <main>
+    <div class="container">
+      <h2>Thank you for registering with Career108</h2>
+
+      <p>Refer below chart for <em>Career</em> choices</p>
+
+      <div class="flex">
+        <a
+          href="https://wa.me/+919909990741?text=Hello"
+          target="_blank"
+          class="whatsapp-btn"
+          ><div class="text">
+            <span class="big">Click Here</span><br />
+            To Start Chat
+          </div>
+          <img
+            src="/whatsapp-icon.svg"
+            alt="WhatsApp Icon"
+            class="whatsapp-img"
+          /></a
+        >
+
+        <hr />
+
+        <div class="call-us-wrapper">
+          <p>Or call us at</p>
+          <a href="tel:+919909990741">990 9990 741</a>
+        </div>
+      </div>
+
+      <iframe src="/Career.pdf#page-2"></iframe>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-block: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-align: center;
+
+    margin-block-start: 1em;
+
+    em {
+      color: var(--clr-accent);
+      font-weight: 600;
+    }
+  }
+
+  .flex {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 2rem;
+
+    @media (min-width: 1000px) {
+      flex-direction: row;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid var(--clr-accent);
+      border-right: 1px solid var(--clr-accent);
+      align-self: stretch;
+    }
+  }
+
+  .whatsapp-btn {
+    background-color: var(--clr-accent);
+    text-decoration: none;
+    color: var(--clr-primary);
+    padding: 0.5em 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    img {
+      width: 3rem;
+      height: auto;
+    }
+  }
+
+  .call-us-wrapper {
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: var(--clr-accent);
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+  }
+
+  iframe {
+    box-sizing: border-box;
+    border: 0;
+    width: 100%;
+    min-height: 700px;
+  }
+</style>
