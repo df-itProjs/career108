@@ -1,5 +1,5 @@
 ---
-const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", "12th Arts"]
+const standards = ["12th Commerce", "12th Arts", "12th Science A", "12th Science B", "10th"]
 ---
 
 <form
@@ -124,7 +124,7 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
     </div>
   </div>
 
-  <label>
+  <label style="font-size: .8rem; line-height: 1.6; color: var(--clr-neutral-300);">
     <input
       type="checkbox"
       name="terms-and-conditions"
@@ -132,7 +132,9 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
       required
     />
 
-    I agree to give my consent to receive updates through SMS/Email & WhatsApp*.
+    I agree to receive information by signing up on Career108 an initiative of Drona Education
+    Foundation & its representatives to contact me with updates and notifications via
+    Email/SMS/WhatsApp/Call. This will override DND/NDNC.
   </label>
 
   <button type="submit">Submit</button>
@@ -143,15 +145,6 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
     stateCityHandler()
 
     const coursesToDisplay = {
-      "10th": [
-        "11th - 12th Commerce",
-        "11th - 12th Science",
-        "11th - 12th Arts",
-        "D.Voc",
-        "Dimploma Engineering",
-        "ITI",
-        "Any other courses",
-      ],
       "12th Commerce": [
         "B.Voc Degree",
         "B.Com Degree",
@@ -249,6 +242,15 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
         "NDA",
         "Other Competitive Exams",
         "Any Other Courses",
+      ],
+      "10th": [
+        "11th - 12th Commerce",
+        "11th - 12th Science",
+        "11th - 12th Arts",
+        "D.Voc",
+        "Dimploma Engineering",
+        "ITI",
+        "Any other courses",
       ],
     }
 
