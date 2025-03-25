@@ -263,28 +263,34 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
       })
     })
 
-    const form = document.querySelector("#enquiryForm") as HTMLFormElement
+    const enquiryForm = document.querySelector("#enquiryForm") as HTMLFormElement
 
-    if (!form) {
+    if (!enquiryForm) {
       console.error("Form not found!")
       return
     }
 
     const getOtpButton = document.querySelector("#getOtpButton")
     const mobileInput = document.querySelector("#mobile") as HTMLInputElement
+
     let verificationKey: string
 
     const SEND_OTP_API = "https://api.skill.college/career108/send-otp"
     const GENERATE_LEAD_API = "https://api.skill.college/career108/generate-lead"
 
+    let submitCount = 0
+
     if (getOtpButton && mobileInput) {
       getOtpButton.addEventListener("click", async () => {
+        console.log("clicked")
+
         const phoneNumber = mobileInput.value
         const phoneRegex = /^[0-9]{10}$/
         if (!phoneRegex.test(phoneNumber)) {
           alert("Please enter a valid 10-digit mobile number.")
           return
         }
+
         try {
           const response = await fetch(`${SEND_OTP_API}/${phoneNumber}`, {
             method: "GET",
@@ -292,14 +298,16 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
               "Content-Type": "application/json",
             },
           })
-          if (response.ok) {
-            alert(`OTP sent successfully to ${phoneNumber}.`)
-            const result = await response.json()
-            verificationKey = result.verificationKey
-          } else {
+
+          if (!response.ok) {
             alert("Failed to send OTP. Please try again.")
             console.error("API Error:", response.status, response.statusText)
+            return
           }
+
+          alert(`OTP sent successfully to ${phoneNumber}.`)
+          const result = await response.json()
+          verificationKey = result.verificationKey
         } catch (error) {
           alert("An error occurred while sending OTP.")
           console.error("Error:", error)
@@ -307,10 +315,10 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
       })
     }
 
-    form.addEventListener("submit", async (event) => {
+    enquiryForm.addEventListener("submit", async (event) => {
       event.preventDefault()
 
-      form.reportValidity()
+      enquiryForm.reportValidity()
 
       if (!verificationKey) {
         alert("Please generate OTP first.")
@@ -318,24 +326,28 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
       }
 
       try {
-        const formData = new FormData(form)
-        const data = Object.fromEntries(formData.entries())
+        const formData = new FormData(enquiryForm)
+        const body = Object.fromEntries(formData.entries())
 
         const referrer = document.referrer
 
-        data["otp_verification_key"] = verificationKey
-        data["source"] = referrer
+        body["otp_verification_key"] = verificationKey
+        body["source"] = referrer
 
         const response = await fetch(GENERATE_LEAD_API, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify(body),
         })
 
         if (response.ok) {
           const result = await response.json()
+
+          enquiryForm.reset()
+          submitCount++
+          open("/Career.pdf#page=2", "_blank")
         } else {
           const errorResponse = await response.json()
           console.error("Failed to generate lead:", errorResponse)
@@ -345,14 +357,6 @@ const standards = ["10th", "12th Commerce", "12th Science A", "12th Science B", 
         console.error("Error retrieving form data:", error)
         alert("An error occurred while submitting the form.")
       }
-
-      const pdfURL = "/Career.pdf#page=2"
-      const iframe = document.createElement("iframe")
-      iframe.src = pdfURL
-      iframe.width = "100%"
-      iframe.height = "600"
-      document.body.appendChild(iframe)
-      iframe.scrollIntoView({ behavior: "smooth" })
     })
   })
 
