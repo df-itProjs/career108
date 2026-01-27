@@ -33,7 +33,7 @@ const description =
         <em class="extrabold underline">12th Students</em>
       </h1> -->
       <!-- There are 108+ Career Options after 10th and 12th, let us help you to choose the Best One -->
-      <div class="grid">
+      <div class="grid hero">
         <h1 class="hero-title">
           There are <em class="extrabold highlight fs-big">108+</em> Career options after <em
             class="extrabold">10th and 12th</em
@@ -43,23 +43,23 @@ const description =
         </h1>
         <!-- <div class="npf_wgts" data-height="463px" data-w="c20c8dcb67fde10d6e056c543711cd6a"></div> -->
 
-        <EnquiryForm />
+        <a
+          href="https://wa.me/+919909990741?text=Hello"
+          target="_blank"
+          class="cta"
+          ><div class="text">
+            <span class="big">Click Here</span><br />
+            To Start Chat
+          </div>
+          <img
+            src="/whatsapp-icon.svg"
+            alt="WhatsApp Icon"
+            class="whatsapp-img"
+          /></a
+        >
       </div>
 
-      <a
-        href="https://wa.me/+919909990741?text=Hello"
-        target="_blank"
-        class="cta"
-        ><div class="text">
-          <span class="big">Click Here</span><br />
-          To Start Chat
-        </div>
-        <img
-          src="/whatsapp-icon.svg"
-          alt="WhatsApp Icon"
-          class="whatsapp-img"
-        /></a
-      >
+      <EnquiryForm />
 
       <div class="chatbot-help">
         <p class="chatbot-features">Get help in</p>
@@ -171,22 +171,13 @@ const description =
     font-size: 1.7rem;
     font-weight: 600;
     padding: 0.5em;
-    margin-block: 0.5em 1.2em;
+    margin-block: 1.2em;
     position: relative;
   }
 
   a.cta .big {
     font-size: 2rem;
     font-weight: 800;
-  }
-
-  a.cta::before {
-    content: "";
-    position: absolute;
-    right: clamp(100% + 0.8rem, 100% + 2vw, 100% + 1.2rem);
-    height: 100%;
-    width: 5vw;
-    background-color: var(--button-color);
   }
 
   a.cta::after {
@@ -245,6 +236,10 @@ const description =
     shape-outside: polygon(-1px -8px, -0.14% 51.73%, 30.11% 48.79%, 54.65% 101.18%, 98.55% 101.71%);
     shape-margin: 2rem;
     margin-left: 1rem;
+  }
+
+  .chatbot-help {
+    margin-block-start: 2em;
   }
 
   .chatbot-features {
